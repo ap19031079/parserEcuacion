@@ -4,7 +4,7 @@ public class Parseador {
 
 	public int obtenerParte1(final String ecuacion) {
 
-		String[] partes1 = obtenerPartes(ecuacion);
+		String[] partes1 = obtenerPartes12(ecuacion);
 
 		String parte1 = partes1[0].trim();
 
@@ -22,6 +22,7 @@ public class Parseador {
 		if ("-".equals(operador)) {
 			return Integer.valueOf(parte2) * (-1);
 		}
+
 		return Integer.valueOf(parte2);
 	}
 
