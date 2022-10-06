@@ -4,7 +4,7 @@ public class Parseador {
 
 	public int obtenerParte1(final String ecuacion) {
 
-		String[] partes1 = obtenerPartes12(ecuacion);
+		String[] partes1 = obtenerPartes(ecuacion);
 
 		String parte1 = partes1[0].trim();
 
@@ -22,7 +22,6 @@ public class Parseador {
 		if ("-".equals(operador)) {
 			return Integer.valueOf(parte2) * (-1);
 		}
-
 		return Integer.valueOf(parte2);
 	}
 
@@ -48,4 +47,42 @@ public class Parseador {
 
 		return partes1;
 	}
+
+	private String[] obtenerPartes(final String ecuacion) {
+
+		String correccion = ecuacion.replace("^2","");
+		String correccion2 = correccion.replace(" ","");
+
+		String[] partes = correccion2.split("x");
+
+		return partes;
+	}
+
+	public int obtenerParteCuadratica(final String ecuacion) {
+
+		String[] partes = obtenerPartes(ecuacion);
+
+		String parteCuadratica = partes[0].trim();
+
+		return Integer.valueOf(parteCuadratica);
+	}
+
+	public int obtenerParteLineal(final String ecuacion) {
+
+		String[] partes = obtenerPartes(ecuacion);
+
+		String parteLineal = partes[1].trim();
+
+		return Integer.valueOf(parteLineal);
+	}
+
+	public int obtenerParteIndependiente(final String ecuacion) {
+
+		String[] partes = obtenerPartes(ecuacion);
+
+		String parteIndependiente = partes[2].trim();
+
+		return Integer.valueOf(parteIndependiente);
+	}
+
 }

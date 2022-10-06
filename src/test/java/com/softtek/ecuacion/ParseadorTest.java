@@ -86,4 +86,32 @@ public class ParseadorTest {
 
 		assertEquals("+", operador);
 	}
+
+	@Test
+	public void obtenerPartesPositivas() {
+
+		String ecuacion1 = "2x^2 + 2x + 1";
+
+		int parte1 = (parseador.obtenerParteCuadratica(ecuacion1));
+		int parte2 = (parseador.obtenerParteLineal(ecuacion1));
+		int parte3 = (parseador.obtenerParteIndependiente(ecuacion1));
+
+		assertEquals(2, parte1);
+		assertEquals(2, parte2);
+		assertEquals(1, parte3);
+	}
+
+	@Test
+	public void obtenerPartesNegativas() {
+
+		String ecuacion1 = "-2x^2 - 2x - 1";
+
+		int parte1 = (parseador.obtenerParteCuadratica(ecuacion1));
+		int parte2 = (parseador.obtenerParteLineal(ecuacion1));
+		int parte3 = (parseador.obtenerParteIndependiente(ecuacion1));
+
+		assertEquals(-2, parte1);
+		assertEquals(-2, parte2);
+		assertEquals(-1, parte3);
+	}
 }
